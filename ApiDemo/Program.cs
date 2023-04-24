@@ -29,8 +29,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //public api cho người khác sử dụng
 // DI
+
 builder.Services.AddSingleton<Hub>();
 builder.Services.AddSingleton<SubcribeDeal>();
+
 builder.Services.AddSignalRCore();
 
 var connectionString = builder.Configuration.GetConnectionString("DB_TTS");
@@ -67,16 +69,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 });
 builder.Services.AddAuthorization();
+
+
 builder.Services.AddSignalR();
 
-
-
 var app = builder.Build();
-
-
-
-
-
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseHttpsRedirection();
