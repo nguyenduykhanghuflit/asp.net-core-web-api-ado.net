@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Dynamic;
+using System.Reflection.PortableExecutable;
 
 namespace ApiDemo.Helpers
 {
@@ -14,9 +15,10 @@ namespace ApiDemo.Helpers
             _db = db;
         }
 
-        public IDictionary<string, object> HandleReadData(string query, CommandType commandType = CommandType.Text, params SqlParameter[] sqlParameters)
+        public IDictionary<string, dynamic> HandleReadData(string query, CommandType commandType = CommandType.Text, params SqlParameter[]? sqlParameters)
         {
 
+            IDictionary<string, dynamic> result = new Dictionary<string, dynamic>();
             try
             {
                 var resultList = new List<dynamic>();
@@ -35,15 +37,20 @@ namespace ApiDemo.Helpers
 
                 _db.CloseConnection();
 
-                return HandleResponse(0, resultList, "SqlHelper Success ");
+
+                result.Add("Data", resultList);
+
+                return result;
             }
             catch (Exception ex)
             {
-                return HandleResponse(1, null, "Error at SqlHelper: " + ex.Message);
-
+                result.Add("Error", "Query error: " + ex.Message);
+                return result;
             }
 
         }
+
+
 
         private static Dictionary<string, object> ReadData(SqlDataReader reader)
         {
@@ -58,14 +65,7 @@ namespace ApiDemo.Helpers
             return dict;
         }
 
-        private static IDictionary<string, object> HandleResponse(int errCode, object? data, string message)
-        {
-            dynamic obj = new ExpandoObject();
-            obj.Error = errCode;
-            obj.Message = message;
-            obj.Data = data ?? null;
-            IDictionary<string, object> result = (IDictionary<string, object>)obj;
-            return result;
-        }
+
     }
+
 }

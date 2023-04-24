@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "324015879450",
+    "project_id": "senvangsolutions137",
+    "storage_bucket": "senvangsolutions137.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324015879450:android:57b924aa894b29755c28a3",
+        "android_client_info": {
+          "package_name": "com.hhihi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "324015879450-mmp8dtk9v71ubt7r1ldeu088dgt4hv01.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDThSDggHgGbRAF439Gi_wxhbeIccbfhG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "324015879450-mmp8dtk9v71ubt7r1ldeu088dgt4hv01.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
