@@ -41,7 +41,7 @@ namespace ApiDemo.Services
         }
         private void Deal()
         {
-            using (var connection = new SqlConnection("Data Source=14.241.251.56,1445,1433;Initial Catalog=INTERNSHIP;User Id=tts1;Password=tts@2023;"))
+            using (var connection = new SqlConnection(""))
             {
                 connection.Open();
 
