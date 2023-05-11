@@ -10,7 +10,7 @@ namespace ApiDemo.Services
         public async Task StartAsync(CancellationToken cancellationToken)
         {
             SqlTableDependency<DealDTO> _dependency;
-            var connectionString = "Data Source=14.241.251.56,1445,1433;Initial Catalog=INTERNSHIP;User Id=tts1;Password=tts@2023;";
+            var connectionString = "";
             _dependency = new SqlTableDependency<DealDTO>(connectionString, "CRM_Deal");
 
             _dependency.OnChanged += Dependency_OnChanged;
